@@ -7,12 +7,11 @@
 # About Me
 Hi,everyone I am A Akash,Currently pursuing B-tech from RIT Kottayam,My field of interests are
 * IoT
-* Chaos theory
 * Compliant mechanisms
 * Robotics
 
 # Experiment-1 HELLO WORLD LED BLINKING
-Iintoduction to Arduino IDE and Its programming is intended here
+Intoduction to Arduino IDE and its programming is intended here
 
 ## Components Required
 * Arduino Uno R3 *1
@@ -46,6 +45,10 @@ void loop() {
 ## Output
 The LED blinks with a delay of one second 
 ## Output video
+
+
+https://user-images.githubusercontent.com/85242299/167548335-7f5455c0-93f3-4257-90a8-845c7d86dc61.mp4
+
 
 
 # Experiment-2 Traffic Light
@@ -97,8 +100,12 @@ void loop()
 }
 ```
 ## Output
-The green Led lights for five seconds followed by yellow LED blinking three times with a delay of 0.5seconds followed by the red LED ON for 5 seconds 
+The green Led turns on for five seconds followed by yellow LED blinking three times with a delay of 0.5seconds followed by the red LED turning on  for 5 seconds 
 ## Output video
+
+
+Uploading Exp2.mp4…
+
 
 
 # Experiment-3 LED Chasing Effect
@@ -143,8 +150,12 @@ void loop()
 ```
 ##  OUTPUT
 
-The Leds will all lights up with a delay of 0.2 seconds and then turns of one by one with a delay of 0.2 second
+The Leds will all lights up with a delay of 0.2 seconds and then turns off one by one with a delay of 0.2 second
 ## Output video
+
+
+https://user-images.githubusercontent.com/85242299/167548392-81ca97df-4da8-4c51-8402-4878a6c6d539.mp4
+
 
  
 #  Experiment 4 BUTTON CONTROLLED LED
@@ -229,6 +240,10 @@ digitalWrite(buzzer, HIGH); // produce sound
 
 The buzzer buzzes.
 ## OUTPUT VEDIO
+
+
+https://user-images.githubusercontent.com/85242299/167548482-2368a445-ec0b-4c8a-81b0-cf280aaa8a03.mp4
+
 
 
 # EXPERIMENT 6 RGB LED
@@ -334,6 +349,14 @@ delay(10);
 ## OUTPUT
 When the light falling on the Ldr the analog value is read and is fed to the led as duty cycle of range 255.and the Led attains brightness at the same rate the light in the room decreases.
 ## OUTPUT VIDEO
+
+
+https://user-images.githubusercontent.com/85242299/167548512-509141db-dfbf-4538-9dfc-2af0b1144013.mp4
+
+
+
+Uploading Exp7_2.mp4…
+
 
 
 
@@ -523,6 +546,10 @@ The leds are turned on as buttons 1-6 of IR(tv) remote is pressed.They are all t
 ## OUTPUT VIDEO
 
 
+Uploading Exp10.mp4…
+
+
+
 # EXP-11 POTENTIOMETER ANALOG VALUE READING
 
 ## Potentiometer working principle 
@@ -567,6 +594,14 @@ The data from the potentiometer is displayed on the serial monitor.
 ## OUTPUT
 
 ## OUTPUT VEDIO
+
+
+https://user-images.githubusercontent.com/85242299/167548546-cc522347-0bfb-43f3-8e17-61422f36c931.mp4
+
+
+
+Uploading Exp11_2.mp4…
+
 
 
 # EXP-12 7 SEGMENT DISPLAY
@@ -777,7 +812,11 @@ analogWrite(ledpin,val);// set up brightness（maximum value 255）
 delay(10);// wait for 0.01 
 }
 ```
-## OUTPUT
+## OUTPUT VEDIO
+
+
+Uploading Assign1.mp4…
+
 
 
 
@@ -837,4 +876,8 @@ void loop() {
 
 
 ```
-## Output
+## Output VEDIO
+
+
+Uploading Assign2.mp4…
+
