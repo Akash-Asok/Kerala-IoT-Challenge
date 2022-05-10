@@ -392,9 +392,6 @@ void loop()
 ![Exp8](https://user-images.githubusercontent.com/85242299/167363531-0d9aecee-ea43-4792-8ed4-1013f451566e.JPG)
 
   
-## OUTPUT VIDEO
-
-
 ## OUTPUT
 The flame sensor detects the presence of fire or flame based on the Infrared (IR) wavelength emitted by the flame and triggers the alarm in case of fire deteced
 
@@ -440,3 +437,401 @@ delay(500);
 ## OUTPUT
 The temperature is displayed on serial monitor
 
+# EXP-10 IR Remote Control Using TSOP
+
+## IR 
+The signal from the infrared remote controller is a series of binary pulse code. To avoid the other infrared signal interference during the wireless transmission, the signal is pre-modulated at a specific carrier frequency and then send out by an infrared emission diode. The infrared receiving device needs to filter out other waves and receive signals at that specific frequency and to modulate it back to binary pulse code, known as demodulation.
+
+## WORKING
+IR remote controls, as the name would imply, make use of pulses of infrared light to send signals to a receiving device such as a television or sound system. Each button on the remote control sends out a unique pattern of pulses which are decoded by the receiver so that the appropriate action 
+
+## COMPONENTS REQUIRED
+* Arduino Uno Board
+* Infrared Remote Controller
+* Infrared Receiver 
+* LED
+* 220ΩResistor
+* Breadboard Wire
+* USB cable
+## CIRCUIT DIAGRAM
+![Exp10](https://user-images.githubusercontent.com/85242299/167536671-85390198-7e54-44ed-b394-eb005249aab2.JPG)
+
+## CODE
+
+```
+#include <IRremote.h>
+const int RECV_PIN = 4;
+const int redPin = 3; 
+const int yellowPin = 2;
+
+// Define integer to remember toggle state
+int togglestate1 = 0;
+int togglestate2 =0;
+
+// Define IR Receiver and Results Objects
+IRrecv irrecv(RECV_PIN);
+decode_results results;
+
+
+void setup(){
+  // Enable the IR Receiver
+  irrecv.enableIRIn();
+  // Set LED pins as Outputs
+  pinMode(redPin, OUTPUT);
+  pinMode(yellowPin, OUTPUT);
+}
+
+
+void loop(){
+    if (irrecv.decode(&results))
+    {
+
+        switch(results.value){
+          case 0x1FE48B7: //power buton of my remote
+        if(togglestate1==0)
+           {
+        digitalWrite(yellowPin, HIGH);
+        togglestate1=1;
+        }
+        else {
+        digitalWrite(yellowPin, LOW);
+        togglestate1=0;
+        };
+        break;
+   
+          case 0x1FE50AF: //digit one of my remote
+        // Toggle LED On or Off
+        if(togglestate2==0){
+        digitalWrite(yellowPin, HIGH);
+        togglestate2=1;
+        }
+        else {
+        digitalWrite(yellowPin, LOW);
+        togglestate2=0;
+        }
+        break;
+        
+    }
+    irrecv.resume(); 
+  }
+
+}
+
+```
+## OUTPUT
+The leds are turned on as buttons 1-6 of IR(tv) remote is pressed.They are all turned off when button 7 is pressed. 
+## OUTPUT VIDEO
+
+
+# EXP-11 POTENTIOMETER ANALOG VALUE READING
+
+## Potentiometer working principle 
+the potentiometer will act as a variable resistor. When you turn the knob, the resistor will increase or decrease, which will also increase or decrease the voltage on the analog pin to which the potentiometer is connected.Arduino Uno has a max voltage of 5V. The voltage on pin A0 will vary from 0V to 5V when you turn the knob.
+## Components required 
+* Arduino Uno 
+
+*10K Potentiometer
+
+*Breadboard
+
+*Breadboard Jumper Wire
+
+*USB cable
+## Circuit diagram
+![Exp11](https://user-images.githubusercontent.com/85242299/167537601-25204c40-333d-4218-a833-1621673ee833.JPG)
+
+## Code
+```
+int potpin=0;// initialize analog pin 0
+int ledpin=13;// initialize digital pin 13
+int val=0;// define val, assign initial value 0
+void setup()
+{
+pinMode(ledpin,OUTPUT);// set digital pin as “output”
+Serial.begin(9600);// set baud rate at 9600
+}
+void loop()
+{
+digitalWrite(ledpin,HIGH);// turn on the LED on pin 13
+delay(50);// wait for 0.05 second
+digitalWrite(ledpin,LOW);// turn off the LED on pin 13
+delay(50);// wait for 0.05 second
+val=analogRead(potpin);// read the analog value of analog pin 0, and assign it to val 
+Serial.println(val);// display val’s value
+}
+
+```
+## improvisation
+The data from the potentiometer is displayed on the serial monitor.
+
+## OUTPUT
+
+## OUTPUT VEDIO
+
+
+# EXP-12 7 SEGMENT DISPLAY
+
+There are two types of seven-segment displays: common anode and common cathode. The Internal structure of each of these types is nearly the identical. However, the polarity of the LEDs and common terminal are different. In most standard cathode seven-segment displays (the one we used in the experiments), all seven LEDs, in addition to a dot LED, have the cathodes connected to pins 8 and pin 3. To use this display, we must connect GROUND to pin 3 and pin 8, then connect +5V to the other pins and make each of the individual segments light up
+## Components required
+* Arduino Uno Board
+* 1-digit LED Segment Display
+* 220Ω Resistor
+* Breadboard
+* Breadboard Jumper Wires
+* USB cable
+
+
+## Circuit diagram
+![Exp12](https://user-images.githubusercontent.com/85242299/167537972-a52ffb41-7bdf-4650-87a6-443c460fb3d1.JPG)
+
+
+
+## Code
+
+```
+
+ int a=7;
+int b=6;
+int c=5
+int d=10;
+int e=11;
+int f=8;
+int g=9;
+int dp=4
+void digital_0(void) 
+{
+unsigned char j;
+digitalWrite(a,HIGH);
+digitalWrite(b,HIGH);
+digitalWrite(c,HIGH);
+digitalWrite(d,HIGH);
+digitalWrite(e,HIGH);
+digitalWrite(f,HIGH);
+digitalWrite(g,LOW);
+digitalWrite(dp,LOW);
+}
+void digital_1(void) // display number 1
+{
+unsigned char j;
+digitalWrite(c,HIGH);
+digitalWrite(b,HIGH);// turn on segment b
+for(j=7;j<=11;j++)// turn off other segments
+digitalWrite(j,LOW);
+digitalWrite(dp,LOW);// turn off segment dp
+}
+void digital_2(void) // display number 2
+{
+unsigned char j;
+digitalWrite(b,HIGH);
+digitalWrite(a,HIGH);
+for(j=9;j<=11;j++)
+digitalWrite(j,HIGH);
+digitalWrite(dp,LOW);
+digitalWrite(c,LOW);
+digitalWrite(f,LOW);
+}
+void digital_3(void) // display number 3
+{digitalWrite(g,HIGH);
+digitalWrite(a,HIGH);
+digitalWrite(b,HIGH);
+digitalWrite(c,HIGH);
+digitalWrite(d,HIGH);
+digitalWrite(dp,LOW);
+digitalWrite(f,LOW);
+digitalWrite(e,LOW);
+}
+void digital_4(void) // display number 4
+{digitalWrite(c,HIGH);
+digitalWrite(b,HIGH);
+digitalWrite(f,HIGH);
+digitalWrite(g,HIGH);
+digitalWrite(dp,LOW);
+digitalWrite(a,LOW);
+digitalWrite(e,LOW);
+digitalWrite(d,LOW);
+}
+void digital_5(void) // display number 5
+{
+unsigned char j;
+digitalWrite(a,HIGH);
+digitalWrite(b, LOW);
+digitalWrite(c,HIGH);
+digitalWrite(d,HIGH);
+digitalWrite(e, LOW);
+digitalWrite(f,HIGH);
+digitalWrite(g,HIGH);
+digitalWrite(dp,LOW);
+}
+void digital_6(void) // display number 6
+{
+unsigned char j;
+for(j=7;j<=11;j++)
+digitalWrite(j,HIGH);
+digitalWrite(c,HIGH);
+digitalWrite(dp,LOW);
+digitalWrite(b,LOW);
+}
+void digital_7(void) // display number 7
+{
+unsigned char j;
+for(j=5;j<=7;j++)
+digitalWrite(j,HIGH);
+digitalWrite(dp,LOW);
+for(j=8;j<=11;j++)
+digitalWrite(j,LOW);
+}
+void digital_8(void) // display number 8
+{
+unsigned char j;
+for(j=5;j<=11;j++)
+digitalWrite(j,HIGH);
+digitalWrite(dp,LOW);
+}
+void digital_9(void) // display number 5
+{
+unsigned char j;
+digitalWrite(a,HIGH);
+digitalWrite(b,HIGH);
+digitalWrite(c,HIGH);
+digitalWrite(d,HIGH);
+digitalWrite(e, LOW);
+digitalWrite(f,HIGH);
+digitalWrite(g,HIGH);
+digitalWrite(dp,LOW);
+}
+void setup()
+{
+int i;// set variable
+for(i=4;i<=11;i++)
+pinMode(i,OUTPUT);// set pin 4-11as “output”
+}
+void loop()
+{
+while(1)
+{
+digital_0();
+delay(1000);
+digital_1();
+delay(1000);
+digital_2();
+delay(1000); 
+digital_3();
+delay(1000);
+digital_4();
+delay(1000); 
+digital_5();
+delay(1000); 
+digital_6();
+delay(1000); 
+digital_7();
+delay(1000); 
+digital_8();
+delay(1000); 
+digital_9()
+delay(500); 
+}}
+
+```
+## OUTPUT
+
+
+# ASSIGNMENT 1-Night lamp with LDR and LED
+
+## Working
+when the lights fade out the LED should automatically fix the light 
+
+## COMPONENTS REQUIRED
+ * Arduino Uno 
+ * Photo Resistor
+ * Red M5 LED*
+ * 10KΩ Resistor
+ * 220Ω Resistor
+ * Breadboard
+ * Breadboard Jumper Wire
+ * USB cable
+ 
+## CIRCUIT DIAGRAM
+![Exp7](https://user-images.githubusercontent.com/85242299/167537990-11dfaccb-0521-44ec-ad4d-9b4d3903d376.JPG)
+
+## CODE
+```
+int potpin=0;// initialize analog pin 0, connected with photovaristor
+int ledpin=11;// initialize digital pin 11, 
+int val=0;// initialize variable val
+void setup()
+{
+pinMode(ledpin,OUTPUT);// set digital pin 11 as “output”
+Serial.begin(9600);// set baud rate at “9600”
+}
+void loop()
+{
+val=analogRead(potpin);// read the value of the sensor and assign it to val
+Serial.println(val);// display the value of val
+if(val>=1000)
+{
+  val = 255;
+}
+else if(val<=990)
+  val = 5;
+analogWrite(ledpin,val);// set up brightness（maximum value 255）
+delay(10);// wait for 0.01 
+}
+```
+## OUTPUT
+
+
+
+# ASSIGNMENT 2-Digital dice using button and 6 LEDs
+
+
+## Components Required
+* Arduino Uno
+* 6-LEDs
+* push button Switch
+* 10K Ohm Resistor
+* Connecting Wires
+* 6-220K Ohm Resistor
+
+## Connection Setup
+
+
+## Code
+```
+int led1 = 12;
+int led2 = 11;
+int led3 = 10;
+int led4 = 9;
+int led5 = 8;
+int led6 = 7;
+int button = 6;
+int val;
+int randNum = 0;
+void setup() {
+  // put your setup code here, to run once:
+  randomSeed(analogRead(0));
+
+  pinMode(button,INPUT);
+
+  pinMode(led1,OUTPUT);
+  pinMode(led2,OUTPUT);
+  pinMode(led3,OUTPUT);
+  pinMode(led4,OUTPUT);
+  pinMode(led5,OUTPUT);
+  pinMode(led6,OUTPUT);
+
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  val = digitalRead(button);
+  if(val==HIGH)
+  {
+    randNum = random(7,13);
+    digitalWrite(randNum,HIGH);
+    delay(2000);
+    digitalWrite(randNum,LOW);
+  }
+}
+
+
+```
