@@ -793,6 +793,8 @@ delay(10);// wait for 0.01
 * 6-220K Ohm Resistor
 
 ## Connection Setup
+![Assign2](https://user-images.githubusercontent.com/85242299/167541050-f24bd9c8-1846-4977-a5c4-3ef96f427490.JPG)
+
 
 
 ## Code
@@ -835,3 +837,4 @@ void loop() {
 
 
 ```
+## Output
