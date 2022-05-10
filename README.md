@@ -104,7 +104,11 @@ The green Led turns on for five seconds followed by yellow LED blinking three ti
 ## Output video
 
 
-Uploading Exp2.mp4…
+
+
+https://user-images.githubusercontent.com/85242299/167553498-c7ab24dd-08af-424b-b0f2-5a9e2f112a1f.mp4
+
+
 
 
 
@@ -202,7 +206,11 @@ else
 ##  OUTPUT 
   
 The led blinks as the button is pressed.
-## output vedio
+## output video
+
+
+https://user-images.githubusercontent.com/85242299/167555719-5ec42c1c-ecac-4ab7-9581-24e72f653e3a.mp4
+
 
 # EXPERIMENT 5 Buzzer
  
@@ -239,7 +247,7 @@ digitalWrite(buzzer, HIGH); // produce sound
 ## OUTPUT
 
 The buzzer buzzes.
-## OUTPUT VEDIO
+## OUTPUT VIDEO
 
 
 https://user-images.githubusercontent.com/85242299/167548482-2368a445-ec0b-4c8a-81b0-cf280aaa8a03.mp4
@@ -308,6 +316,10 @@ The  RGB LED glows with aspecific pattern and brightness level
 ## OUTPUT VIDEO
 
 
+https://user-images.githubusercontent.com/85242299/167556797-95f2eb71-3aa4-4bf5-b8e5-c27b9ea95f00.mp4
+
+
+
 # EXPERIMENT 7-LDR Light Sensor
 
 ## LDR sensor
@@ -355,7 +367,15 @@ https://user-images.githubusercontent.com/85242299/167548512-509141db-dfbf-4538-
 
 
 
-Uploading Exp7_2.mp4…
+
+https://user-images.githubusercontent.com/85242299/167556840-0191e6a5-3918-4a80-8c1e-13076a0d1c41.mp4
+
+
+
+
+
+
+
 
 
 
@@ -546,7 +566,15 @@ The leds are turned on as buttons 1-6 of IR(tv) remote is pressed.They are all t
 ## OUTPUT VIDEO
 
 
-Uploading Exp10.mp4…
+
+
+
+https://user-images.githubusercontent.com/85242299/167557138-2770ba05-d7c1-4b81-96b8-792ea829cc40.mp4
+
+
+
+
+
 
 
 
@@ -593,14 +621,18 @@ The data from the potentiometer is displayed on the serial monitor.
 
 ## OUTPUT
 
-## OUTPUT VEDIO
+## OUTPUT VIDEO
 
 
 https://user-images.githubusercontent.com/85242299/167548546-cc522347-0bfb-43f3-8e17-61422f36c931.mp4
 
 
 
-Uploading Exp11_2.mp4…
+
+https://user-images.githubusercontent.com/85242299/167557288-958dd70b-e88d-4a81-8d02-015911fa6728.mp4
+
+
+
 
 
 
@@ -812,10 +844,18 @@ analogWrite(ledpin,val);// set up brightness（maximum value 255）
 delay(10);// wait for 0.01 
 }
 ```
-## OUTPUT VEDIO
+## OUTPUT VIDEO
 
 
-Uploading Assign1.mp4…
+
+
+
+
+https://user-images.githubusercontent.com/85242299/167557710-d604e18b-1fc1-4094-8255-0b6a9e39a4a0.mp4
+
+
+
+
 
 
 
@@ -876,8 +916,19 @@ void loop() {
 
 
 ```
-## Output VEDIO
+## Output VIDEO
 
 
-Uploading Assign2.mp4…
+
+
+
+
+https://user-images.githubusercontent.com/85242299/167557951-458e66fa-118c-4199-971e-f76ccd41a442.mp4
+
+
+
+
+
+
+
 
