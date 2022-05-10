@@ -27,7 +27,7 @@ Intoduction to Arduino IDE and its programming is intended here
 ##  Code
  ```
  
- int ledPin=5;  //defining ledpin as pin 5
+ int ledPin=10;  //defining ledpin as pin 10
 void setup() {
    pinMode(5,OUTPUT); //define pin5 as output type: 
 }
@@ -70,9 +70,9 @@ https://user-images.githubusercontent.com/85242299/167548335-7f5455c0-93f3-4257-
 ## Code
 
 ```
-int Green=5;//defining ledpin as pin 5
-int Yellow=8;//defining ledpin as pin 8
-int Red=6;//defining ledpin as pin 6
+int Green=5;//defining ledpin as pin 4
+int Yellow=8;//defining ledpin as pin 7
+int Red=6;//defining ledpin as pin 10
 void setup() {
    pinMode(5,OUTPUT); //define pin5 as output type: 
    pinMode(8,OUTPUT); //define pin8 as output type:
@@ -179,7 +179,8 @@ Taking feedback from a button to control any output pin,also to study setting of
 ##  Circuit Diagram
  ![Exp4](https://user-images.githubusercontent.com/85242299/167359608-5e83a9f5-94a9-4586-be62-bd0c5bb3e644.JPG)
 
-
+## Note
+As I had no 10KOhm resistors I have used 5 56KOhm resistors in parallel to get an effective resistance of 11.2KOhm which seems to serve the purpose.
  
 ##  Code
  ```
@@ -246,7 +247,7 @@ digitalWrite(buzzer, HIGH); // produce sound
 
 ## OUTPUT
 
-The buzzer buzzes.
+The buzzer buzzes continuously.
 ## OUTPUT VIDEO
 
 
@@ -258,7 +259,7 @@ https://user-images.githubusercontent.com/85242299/167548482-2368a445-ec0b-4c8a-
 
 ## AIM
 
-To control the RGB LED to give diffrent pattern output
+To control the RGB LED to give different colours.
 
 ## Note
 
@@ -312,7 +313,7 @@ for(val=0; val<255; val++)
 
 
 ## OUTPUT
-The  RGB LED glows with aspecific pattern and brightness level
+The  RGB LED glows with different colours.
 ## OUTPUT VIDEO
 
 
@@ -355,11 +356,12 @@ delay(10);
 }
 ```
 ## NOTE
+ * As I had no 10KOhm resistors I have used 5 56KOhm resistors in parallel to get an effective resistance of 11.2KOhm which seems to serve the purpose.
  * Ldr resistance will decrease as the incident light increases
  * The analogread() varies from 0 to 1023 
  * analogWrite() varies from 0 to 255 (1/4 th)
 ## OUTPUT
-When the light falling on the Ldr the analog value is read and is fed to the led as duty cycle of range 255.and the Led attains brightness at the same rate the light in the room decreases.
+When light falls on the LDR ,the analog value is read and displayed on the serial monitor.
 ## OUTPUT VIDEO
 
 
@@ -486,7 +488,7 @@ The temperature is displayed on serial monitor
 The signal from the infrared remote controller is a series of binary pulse code. To avoid the other infrared signal interference during the wireless transmission, the signal is pre-modulated at a specific carrier frequency and then send out by an infrared emission diode. The infrared receiving device needs to filter out other waves and receive signals at that specific frequency and to modulate it back to binary pulse code, known as demodulation.
 
 ## WORKING
-IR remote controls, as the name would imply, make use of pulses of infrared light to send signals to a receiving device such as a television or sound system. Each button on the remote control sends out a unique pattern of pulses which are decoded by the receiver so that the appropriate action 
+IR remote controls, as the name would imply, make use of pulses of infrared light to send signals to a receiving device such as a television or sound system. Each button on the remote control sends out a unique pattern of pulses which are decoded by the receiver so that the appropriate action is performed.
 
 ## COMPONENTS REQUIRED
 * Arduino Uno Board
@@ -583,7 +585,7 @@ https://user-images.githubusercontent.com/85242299/167557138-2770ba05-d7c1-4b81-
 ## Potentiometer working principle 
 the potentiometer will act as a variable resistor. When you turn the knob, the resistor will increase or decrease, which will also increase or decrease the voltage on the analog pin to which the potentiometer is connected.Arduino Uno has a max voltage of 5V. The voltage on pin A0 will vary from 0V to 5V when you turn the knob.
 ## Components required 
-* Arduino Uno 
+*Arduino Uno 
 
 *10K Potentiometer
 
@@ -616,11 +618,11 @@ Serial.println(val);// display val’s value
 }
 
 ```
-## improvisation
-The data from the potentiometer is displayed on the serial monitor.
+
+
 
 ## OUTPUT
-
+The data from the potentiometer is displayed on the serial monitor.
 ## OUTPUT VIDEO
 
 
@@ -651,7 +653,10 @@ There are two types of seven-segment displays: common anode and common cathode. 
 ## Circuit diagram
 ![Exp12](https://user-images.githubusercontent.com/85242299/167537972-a52ffb41-7bdf-4650-87a6-443c460fb3d1.JPG)
 
-
+## Working
+![](https://user-images.githubusercontent.com/95708160/151671959-ccb0767f-dd9d-40ab-b24f-9c0df678d45c.gif)
+## Circuit diagram
+![](https://user-images.githubusercontent.com/95708160/151667411-61ffe689-8c8e-456f-ad90-0bf2f3145e9c.jpeg)
 
 ## Code
 
@@ -800,6 +805,7 @@ delay(500);
 
 ```
 ## OUTPUT
+![](https://user-images.githubusercontent.com/95708160/152190589-b23a24fe-9a7a-4275-ac79-c2042036624a.png)
 
 
 # ASSIGNMENT 1-Night lamp with LDR and LED
